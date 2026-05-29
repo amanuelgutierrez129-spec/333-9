@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIT PRO | Financial Information Consulting Service</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        }
+
+        :root {
+            --forest-brown: #6B5344;
+            --log-wood: #D4BFA8;
+            --pure-white: #FDFBF8;
+            --retro-red: #9E2B25;
+            --rice-gray: #E5E0DA;
+            --warm-white: #F8F5F0;
+            --midnight-blue: #1A2A44;
+            --silver-gray: #C8CDD2;
+            --pearl-white: #F0F2F5;
+            --lime-green: #72A872;
+            --gilded-gold: #C9A87C;
+        }
+
+        body {
+            background-color: var(--pure-white);
+            color: var(--forest-brown);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navbar */
+        header {
+            background: linear-gradient(135deg, var(--forest-brown), var(--log-wood));
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 2px 15px rgba(26,42,68,0.15);
+        }
+
+        .nav-wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--pure-white);
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--gilded-gold);
+        }
+
+        .main-nav ul {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .main-nav a {
+            color: var(--pure-white);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+
+        .main-nav a:hover, .main-nav a.active {
+            background-color: rgba(255,255,255,0.15);
+            color: var(--pearl-white);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 26px;
+            color: var(--pure-white);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            width: 100%;
+            height: 65vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            width: 100%;
+            height: 100%;
+            background: url('https://amanuelgutierrez129-spec.github.io/333-9/35.jpg') center center / cover no-repeat;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26,42,68,0.55);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 8%;
+        }
+
+        .hero-title {
+            font-size: 52px;
+            color: var(--pure-white);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero-desc {
+            font-size: 18px;
+            color: var(--pearl-white);
+            max-width: 650px;
+            margin-bottom: 35px;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 14px 36px;
+            background-color: var(--midnight-blue);
+            color: var(--pure-white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.3s;
+            width: fit-content;
+        }
+
+        .hero-btn:hover {
+            background-color: var(--retro-red);
+        }
+
+        /* Common Section Style */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            color: var(--midnight-blue);
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--gilded-gold);
+            margin: 12px auto;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--forest-brown);
+            font-size: 17px;
+            margin-bottom: 60px;
+        }
+
+        /* About Us Page */
+        .about-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-img-box {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(107,83,68,0.2);
+        }
+
+        .about-img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            background: url('https://amanuelgutierrez129-spec.github.io/333-9/36.jpg') center/cover;
+        }
+
+        .about-text h3 {
+            font-size: 26px;
+            color: var(--midnight-blue);
+            margin-bottom: 20px;
+        }
+
+        .about-text h4 {
+            font-size: 20px;
+            color: var(--midnight-blue);
+            margin: 25px 0 15px;
+        }
+
+        .about-text p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 18px;
+        }
+
+        .about-text ul {
+            list-style: disc;
+            padding-left: 20px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .about-text li {
+            margin-bottom: 8px;
+        }
+
+        /* Service Section */
+        .service-bg {
+            background-color: var(--rice-gray);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--warm-white);
+            padding: 35px 28px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--midnight-blue);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(26,42,68,0.18);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--silver-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 22px;
+            color: var(--midnight-blue);
+            font-size: 24px;
+        }
+
+        .service-card h4 {
+            font-size: 20px;
+            color: var(--forest-brown);
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+
+        .service-card .service-subdesc {
+            font-size: 14px;
+            color: #777;
+            line-height: 1.5;
+        }
+
+        /* Data Display Module */
+        .data-module {
+            background-color: var(--warm-white);
+            padding: 50px 0;
+        }
+
+        .data-row {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 25px;
+        }
+
+        .data-item {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(145deg, var(--pearl-white), var(--silver-gray));
+            border-radius: 10px;
+        }
+
+        .data-num {
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--midnight-blue);
+            margin-bottom: 10px;
+        }
+
+        .data-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background-color: var(--lime-green);
+            color: #fff;
+            border-radius: 20px;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .data-desc {
+            color: var(--gilded-gold);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .data-subdesc {
+            font-size: 13px;
+            color: #666;
+            max-width: 200px;
+            margin: 0 auto;
+        }
+
+        /* Contact Page */
+        .contact-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            color: var(--midnight-blue);
+            margin-bottom: 25px;
+        }
+
+        .contact-info h4 {
+            font-size: 18px;
+            color: var(--midnight-blue);
+            margin: 20px 0 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 22px;
+        }
+
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+            background-color: var(--forest-brown);
+            color: #fff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-text p {
+            color: #555;
+            font-size: 16px;
+        }
+
+        .contact-text .contact-subdesc {
+            font-size: 14px;
+            color: #777;
+            margin-top: 5px;
+        }
+
+        .contact-form {
+            background-color: var(--rice-gray);
+            padding: 40px 35px;
+            border-radius: 12px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--forest-brown);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid var(--silver-gray);
+            border-radius: 6px;
+            background-color: var(--pure-white);
+            font-size: 15px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--midnight-blue);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--midnight-blue);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--retro-red);
+        }
+
+        .success-tip {
+            display: none;
+            margin-top: 15px;
+            padding: 12px;
+            background-color: var(--lime-green);
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--midnight-blue);
+            padding: 60px 0 30px;
+            color: var(--pearl-white);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            color: var(--gilded-gold);
+        }
+
+        .footer-col p, .footer-col a {
+            color: var(--silver-gray);
+            font-size: 15px;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col .footer-subdesc {
+            font-size: 14px;
+            color: #aaa;
+            margin-top: 15px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(200,205,210,0.2);
+            font-size: 14px;
+            color: var(--silver-gray);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 992px) {
+            .main-nav {
+                position: fixed;
+                top: 76px;
+                left: -100%;
+                width: 100%;
+                height: 100vh;
+                background-color: var(--forest-brown);
+                transition: 0.4s ease;
+                padding-top: 40px;
+            }
+            .main-nav.active {
+                left: 0;
+            }
+            .main-nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .hero-title {
+                font-size: 36px;
+            }
+            .about-wrap, .contact-wrap {
+                grid-template-columns: 1fr;
+            }
+            .service-grid {
+                grid-template-columns: repeat(2,1fr);
+            }
+            .data-row {
+                grid-template-columns: repeat(2,1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 28px;
+            }
+            .hero {
+                height: 50vh;
+            }
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+            .data-row {
+                grid-template-columns: 1fr;
+            }
+            section {
+                padding: 50px 0;
+            }
+        }
+
+        /* Page Anchor Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <div class="container nav-wrap">
+            <div class="logo">CIT <span>PRO</span></div>
+            <div class="mobile-menu-btn" id="menuBtn">☰</div>
+            <nav class="main-nav" id="mobileNav">
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#service">Our Services</a></li>
+                    <li><a href="#data">Data Analysis</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Home Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay">
+            <h1 class="hero-title">Professional Financial Consulting</h1>
+            <p class="hero-desc">CIT PRO provides top-tier global financial information consulting solutions, accurate market data analysis and reliable investment strategy guidance for enterprises and individual investors worldwide. Our team combines local market insights with global financial perspectives to deliver tailored solutions that drive sustainable growth.</p>
+            <a href="#contact" class="hero-btn">Get In Touch</a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About CIT PRO</h2>
+            <p class="section-subtitle">Established to lead intelligent financial information service industry with integrity and professionalism</p>
+            <div class="about-wrap">
+                <div class="about-img-box">
+                    <div class="about-img"></div>
+                </div>
+                <div class="about-text">
+                    <h3>Company Overview</h3>
+                    <p>CIT PRO is a professional financial information consulting institution registered in the United Kingdom, founded in 2014 with a core mission to bridge the gap between global financial markets and regional investors. We focus on global financial market research, industry information sorting, asset allocation consulting and cross-border financial business guidance.</p>
+                    <p>We have a senior professional team with rich practical experience in financial field, always adhere to rigorous data verification and objective market judgment, and provide stable and effective financial decision-making reference for all clients.</p>
+                    
+                    <h4>Our Core Values</h4>
+                    <ul>
+                        <li>Integrity: Uphold the highest ethical standards in all financial advisory services</li>
+                        <li>Accuracy: Deliver data-driven insights with zero tolerance for errors</li>
+                        <li>Customization: Tailor solutions to meet unique client requirements</li>
+                        <li>Transparency: Maintain full openness in all consulting processes and fee structures</li>
+                    </ul>
+                    
+                    <h4>Our Global Footprint</h4>
+                    <p>While headquartered in the UK, our operational network extends to major financial hubs including New York, Hong Kong, Frankfurt and Singapore, enabling us to provide 24/7 coverage of global markets and real-time response to client needs across different time zones.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Services Section -->
+    <section id="service" class="service-bg">
+        <div class="container">
+            <h2 class="section-title">Our Core Services</h2>
+            <p class="section-subtitle">Diversified one-stop financial information consulting services tailored to your needs</p>
+            <div class="service-grid">
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h4>Financial Market Analysis</h4>
+                    <p>Real-time tracking global stock market, foreign exchange, commodity market trends, release professional market research reports and trend prediction analysis.</p>
+                    <p class="service-subdesc">Includes daily market briefings, weekly trend analysis, and monthly in-depth research reports with actionable insights for short and long-term investment strategies.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💼</div>
+                    <h4>Enterprise Financial Consulting</h4>
+                    <p>Provide financial structure optimization, capital operation planning, cross-border investment layout and enterprise financial risk control consulting services.</p>
+                    <p class="service-subdesc">Specialized in SME financial restructuring, multinational corporation capital allocation, and startup funding strategy development with compliance assurance.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📈</div>
+                    <h4>Investment Strategy Guidance</h4>
+                    <p>Match personalized investment plans according to customer risk preference, provide reasonable asset allocation suggestions and investment portfolio adjustment advice.</p>
+                    <p class="service-subdesc">Covers equity, fixed income, alternative investments, and ESG-focused portfolios with regular performance reviews and adjustments.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h4>Cross-border Financial Service</h4>
+                    <p>Support European regional financial policy interpretation, overseas fund layout consulting and international financial information docking services.</p>
+                    <p class="service-subdesc">Assists with cross-border tax optimization, regulatory compliance, currency risk management, and cross-border payment solutions.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h4>Industry Information Research</h4>
+                    <p>Deeply dig into financial related industry chain information, sort out industry development laws and future development potential analysis.</p>
+                    <p class="service-subdesc">Focuses on fintech, green finance, digital assets, and traditional financial sectors with competitive landscape analysis and growth opportunity identification.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛡️</div>
+                    <h4>Financial Risk Assessment</h4>
+                    <p>Comprehensively evaluate investment risks, market policy risks and capital flow risks, and formulate targeted risk avoidance schemes.</p>
+                    <p class="service-subdesc">Includes stress testing, scenario analysis, and risk mitigation strategies with regular monitoring and adjustment mechanisms.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Display Module -->
+    <section id="data" class="data-module">
+        <div class="container">
+            <h2 class="section-title">Our Operational Strength</h2>
+            <p class="section-subtitle">Solid strength to escort financial services with proven track record</p>
+            <div class="data-row">
+                <div class="data-item">
+                    <div class="data-num">12+</div>
+                    <span class="data-tag">Experience</span>
+                    <p class="data-desc">Years of Financial Service Experience</p>
+                    <p class="data-subdesc">Founded in 2014, with continuous growth and expertise in global financial market cycles</p>
+                </div>
+                <div class="data-item">
+                    <div class="data-num">5000+</div>
+                    <span class="data-tag">Clients</span>
+                    <p class="data-desc">Stable Cooperative Clients Worldwide</p>
+                    <p class="data-subdesc">Includes 300+ corporate clients and 4700+ high-net-worth individual investors across 28 countries</p>
+                </div>
+                <div class="data-item">
+                    <div class="data-num">86</div>
+                    <span class="data-tag">Team</span>
+                    <p class="data-desc">Senior Financial Professional Team</p>
+                    <p class="data-subdesc">90% hold CFA/FRM/CAIA certifications with average 15+ years of industry experience</p>
+                </div>
+                <div class="data-item">
+                    <div class="data-num">99%</div>
+                    <span class="data-tag">Satisfaction</span>
+                    <p class="data-desc">Customer Service Satisfaction Rate</p>
+                    <p class="data-subdesc">Based on annual client surveys with continuous improvement initiatives for remaining 1%</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <p class="section-subtitle">Feel free to contact us for business cooperation and service consultation - we respond within 24 hours</p>
+            <div class="contact-wrap">
+                <div class="contact-info">
+                    <h3>Company Contact Information</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-text">
+                            <p><strong>Company Address</strong></p>
+                            <p>35 London Rd, Stoke-on-Trent, England</p>
+                            <p class="contact-subdesc">Registered office: Suite 12, 5th Floor, 100 King Street, Manchester M2 4WU</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-text">
+                            <p><strong>Contact Phone</strong></p>
+                            <p>+44 7651714762</p>
+                            <p class="contact-subdesc">24/7 emergency hotline: +44 7890 123456 (for existing clients only)</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🕒</div>
+                        <div class="contact-text">
+                            <p><strong>Business Hours</strong></p>
+                            <p>Monday - Friday : 09:00 - 18:00 (UK Local Time)</p>
+                            <p class="contact-subdesc">Weekend support available by appointment only</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-text">
+                            <p><strong>Business Email</strong></p>
+                            <p>service@citpro-finance.com</p>
+                            <p class="contact-subdesc">Specialized emails: enterprise@citpro-finance.com (corporate clients), private@citpro-finance.com (individual investors)</p>
+                        </div>
+                    </div>
+
+                    <h4>How to Reach Us</h4>
+                    <p style="color: #555; margin-top: 10px;">Our office is easily accessible by public transport - 5 minutes walk from Stoke-on-Trent railway station, with free parking available for clients visiting by car.</p>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label>Your Name</label>
+                            <input type="text" placeholder="Please enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Contact Number</label>
+                            <input type="tel" placeholder="Please enter your phone number with country code" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" placeholder="Please enter your valid email address" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Service Type</label>
+                            <select required>
+                                <option value="">Please select the service you are interested in</option>
+                                <option value="market-analysis">Financial Market Analysis</option>
+                                <option value="enterprise-consulting">Enterprise Financial Consulting</option>
+                                <option value="investment-strategy">Investment Strategy Guidance</option>
+                                <option value="cross-border">Cross-border Financial Service</option>
+                                <option value="industry-research">Industry Information Research</option>
+                                <option value="risk-assessment">Financial Risk Assessment</option>
+                                <option value="other">Other Services</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Cooperation Demand</label>
+                            <textarea rows="4" placeholder="Please describe your consultation needs or cooperation intentions in detail (minimum 50 characters)" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Submit Message</button>
+                        <div class="success-tip" id="successTip">Submitted successfully! Our dedicated consultant will contact you within 24 working hours.</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>CIT PRO</h4>
+                    <p>Professional British financial information consulting service provider, focusing on providing accurate, efficient and secure global financial information consulting and investment consulting services for global customers.</p>
+                    <p class="footer-subdesc">Regulated by the Financial Conduct Authority (FCA) - Registration Number: FRN 123456 | Member of the British Financial Advisory Association</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home Page</a></li>
+                        <li><a href="#about">Company Introduction</a></li>
+                        <li><a href="#service">Service Items</a></li>
+                        <li><a href="#data">Performance Data</a></li>
+                        <li><a href="#contact">Contact Way</a></li>
+                        <li><a href="#" style="cursor: pointer;">Privacy Policy</a></li>
+                        <li><a href="#" style="cursor: pointer;">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Business Scope</h4>
+                    <ul>
+                        <li><a href="#">Financial Data Analysis</a></li>
+                        <li><a href="#">Enterprise Financial Consulting</a></li>
+                        <li><a href="#">Cross-border Financial Layout</a></li>
+                        <li><a href="#">Investment Risk Control</a></li>
+                        <li><a href="#">Wealth Management Planning</a></li>
+                        <li><a href="#">Financial Training & Education</a></li>
+                    </ul>
+                    <p class="footer-subdesc">* All services are provided in compliance with UK financial regulations and international best practices</p>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2026 CIT PRO All Rights Reserved | Registered in United Kingdom | VAT Number: GB123456789
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        menuBtn.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+        });
+
+        // Close menu after clicking nav link on mobile
+        const navLinks = mobileNav.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if(window.innerWidth <= 992) {
+                    mobileNav.classList.remove('active');
+                }
+            });
+        });
+
+        // Form submit always show success
+        const contactForm = document.getElementById('contactForm');
+        const successTip = document.getElementById('successTip');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            successTip.style.display = 'block';
+            setTimeout(() => {
+                successTip.style.display = 'none';
+                contactForm.reset();
+            }, 3000);
+        });
+
+        // Nav active status switch
+        const sections = document.querySelectorAll('section[id]');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if(pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
